@@ -1,0 +1,16 @@
+[Unit]
+Description=Servico Lemonade - Modulo Caipirinha
+
+[Service]
+Type=simple
+Environment=LEMONADE_HOME=/opt/lemonade
+Environment=CAIPIRINHA_HOME=/opt/lemonade/caipirinha
+Environment=PYTHONPATH=/opt/lemonade/caipirinha
+Environment=CAIPIRINHA_CONFIG=/opt/lemonade/config/caipirinha-config.yaml
+WorkingDirectory=/opt/lemonade/caipirinha
+
+ExecStartPre=/opt/lemonade/caipirinha/venv/bin/python ${CAIPIRINHA_HOME}/caipirinha/manage.py db upgrade
+ExecStart=/opt/lemonade/caipirinha/venv/bin/python ${CAIPIRINHA_HOME}/caipirinha/runner/caipirinha_server.py -c ${CAIPIRINHA_CONFIG} 
+
+[Install]
+WantedBy=multi-user.target

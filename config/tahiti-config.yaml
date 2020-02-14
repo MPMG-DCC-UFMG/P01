@@ -1,0 +1,14 @@
+tahiti:
+    environment: prod
+    debug: false
+    port: 23453
+    secret: 123456
+    servers:
+        database_url: mysql+pymysql://root:l3mon@localhost:3306/tahiti
+    services:
+        thorn:
+            url: http://localhost:3000
+    config:
+        SQLALCHEMY_POOL_SIZE: 10
+        SQLALCHEMY_POOL_RECYCLE: 240
+

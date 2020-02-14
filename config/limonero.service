@@ -1,0 +1,17 @@
+[Unit]
+Description=Servico Lemonade - Modulo limonero
+
+[Service]
+Type=simple
+Environment=LEMONADE_HOME=/opt/lemonade
+Environment=LIMONERO_HOME=/opt/lemonade/limonero
+Environment=PYTHONPATH=/opt/lemonade/limonero
+Environment=LIMONERO_CONFIG=/opt/lemonade/config/limonero-config.yaml
+Environment=SPARK_HOME=/opt/spark
+WorkingDirectory=/opt/lemonade/limonero
+
+ExecStartPre=/opt/lemonade/limonero/venv/bin/python ${LIMONERO_HOME}/limonero/manage.py db upgrade
+ExecStart=/opt/lemonade/limonero/venv/bin/python ${LIMONERO_HOME}/limonero/runner/limonero_server.py -c ${LIMONERO_CONFIG} 
+
+[Install]
+WantedBy=multi-user.target
