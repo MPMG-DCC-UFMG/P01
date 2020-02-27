@@ -2,7 +2,7 @@
 juicer:
     debug: false
     servers:
-        redis_url: redis://redis:6379
+        redis_url: redis://localhost:6379
     services:
         tahiti:
             url: http://localhost/tahiti:23453
