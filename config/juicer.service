@@ -1,0 +1,15 @@
+[Unit]
+Description=Servico Lemonade - Modulo Juicer
+
+[Service]
+Type=simple
+Environment=LEMONADE_HOME=/opt/lemonade
+Environment=JUICER_HOME=/opt/lemonade/juicer
+Environment=PYTHONPATH=/opt/lemonade/juicer
+Environment=JUICER_CONFIG=/opt/lemonade/config/juicer-config.yaml
+WorkingDirectory=/opt/lemonade/juicer
+
+ExecStart=/opt/lemonade/juicer/venv/bin/python ${JUICER_HOME}/runner/server.py -c ${JUICER_CONFIG} 
+
+[Install]
+WantedBy=multi-user.target
