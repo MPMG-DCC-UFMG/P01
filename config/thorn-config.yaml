@@ -1,6 +1,6 @@
 thorn:
     debug: true
-    environment: dev
+    environment: prod
     port: 23454
     secret: 123456
     providers:
