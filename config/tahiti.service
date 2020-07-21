@@ -3,14 +3,14 @@ Description=Servico Lemonade - Modulo tahiti
 
 [Service]
 Type=simple
-Environment=LEMONADE_HOME=/opt/lemonade
-Environment=TAHITI_HOME=/opt/lemonade/tahiti
-Environment=PYTHONPATH=/opt/lemonade/tahiti
-Environment=TAHITI_CONFIG=/opt/lemonade/config/tahiti-config.yaml
-WorkingDirectory=/opt/lemonade/tahiti
+Environment=LEMONADE_HOME=/opt/lemonade/docker-lemonade
+Environment=TAHITI_HOME=/opt/lemonade/docker-lemonade/tahiti
+Environment=PYTHONPATH=/opt/lemonade/docker-lemonade/tahiti
+Environment=TAHITI_CONFIG=/opt/lemonade/docker-lemonade/config/tahiti-config.yaml
+WorkingDirectory=/opt/lemonade/docker-lemonade/tahiti
 
-ExecStartPre=/opt/lemonade/tahiti/venv/bin/python ${TAHITI_HOME}/tahiti/manage.py db upgrade
-ExecStart=/opt/lemonade/tahiti/venv/bin/python ${TAHITI_HOME}/tahiti/runner/tahiti_server.py -c ${TAHITI_CONFIG} 
+ExecStartPre=/opt/lemonade/docker-lemonade/tahiti/venv/bin/python ${TAHITI_HOME}/tahiti/manage.py db upgrade
+ExecStart=/opt/lemonade/docker-lemonade/tahiti/venv/bin/python ${TAHITI_HOME}/tahiti/runner/tahiti_server.py -c ${TAHITI_CONFIG} 
 
 [Install]
 WantedBy=multi-user.target

@@ -1,0 +1,26 @@
+thorn:
+    debug: true
+    environment: dev
+    port: 23454
+    secret: 123456
+    providers:
+    - thorn
+    - ldap
+    servers:
+        database_url: mysql+pymysql://root:l3mon@localhost:3306/thorn
+        redis_url: redis://localhost:6379/1
+    services:
+    config:
+        SQLALCHEMY_POOL_SIZE: 0
+        SQLALCHEMY_POOL_RECYCLE: 60
+        RQ_QUEUES: ['thorn']
+    unprotected_urls:
+        /api/v1/thorn/auth/login: ['POST']
+        /api/v1/thorn/register: ['POST']
+        /api/v1/thorn/password/reset: ['PATCH', 'POST', 'GET']
+        /api/v1/thorn/tokens: []
+        /api/v1/stand//socket.io/: []
+        /api/v1/stand/socket.io/: []
+        /api/v1/stand/socket.io: []
+        /api/v1/tahiti/public/js/tahiti.js: ['GET']
+        /api/v1/caipirinha/public/dashboard: ['GET']

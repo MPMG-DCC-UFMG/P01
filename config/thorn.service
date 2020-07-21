@@ -1,21 +1,16 @@
 [Unit]
-Description=Servico Lemonade - Modulo thorn
+Description=Servico Lemonade - Modulo Caipirinha
 
 [Service]
 Type=simple
-Environment=LEMONADE_HOME=/opt/lemonade
-Environment=RAILS_ENV=docker
-Environment=THORN_HOME=/opt/lemonade/thorn
-Environment=RAILS_CORS_ORIGINS=*
-Environment=LEMONADE_ENV=app.lemonade.org.br
-Environment=EMAIL_PROVIDER_USERNAME=lemonade.suporte
-Environment=EMAIL_PROVIDER_PASSWORD=sp33d@3019
-Environment=DEVISE_JWT_SECRET_KEY=98c1e17b0c3d2d8ccf480a3794e47afd7348d865a6f6e97eb0010e795e62
+Environment=LEMONADE_HOME=/opt/lemonade/docker-lemonade
+Environment=CAIPIRINHA_HOME=/opt/lemonade/docker-lemonade/thorn
+Environment=PYTHONPATH=/opt/lemonade/docker-lemonade/thorn
+Environment=CAIPIRINHA_CONFIG=/opt/lemonade/docker-lemonade/config/thorn-config.yaml
+WorkingDirectory=/opt/lemonade/docker-lemonade/thorn
 
-WorkingDirectory=/opt/lemonade/thorn
-
-ExecStartPre=sh -c "ln -fns /opt/lemonade/thorn/ /usr/src/app"
-ExecStart=/opt/lemonade/thorn/run
+ExecStartPre=/opt/lemonade/docker-lemonade/thorn/venv/bin/python ${CAIPIRINHA_HOME}/thorn/manage.py db upgrade
+ExecStart=/opt/lemonade/docker-lemonade/thorn/venv/bin/python ${CAIPIRINHA_HOME}/thorn/runner/thorn_server.py -c ${CAIPIRINHA_CONFIG} 
 
 [Install]
 WantedBy=multi-user.target

@@ -3,14 +3,14 @@ Description=Servico Lemonade - Modulo stand
 
 [Service]
 Type=simple
-Environment=LEMONADE_HOME=/opt/lemonade
-Environment=STAND_HOME=/opt/lemonade/stand
-Environment=PYTHONPATH=/opt/lemonade/stand
-Environment=STAND_CONFIG=/opt/lemonade/config/stand-config.yaml
-WorkingDirectory=/opt/lemonade/stand
+Environment=LEMONADE_HOME=/opt/lemonade/docker-lemonade
+Environment=STAND_HOME=/opt/lemonade/docker-lemonade/stand
+Environment=PYTHONPATH=/opt/lemonade/docker-lemonade/stand
+Environment=STAND_CONFIG=/opt/lemonade/docker-lemonade/config/stand-config.yaml
+WorkingDirectory=/opt/lemonade/docker-lemonade/stand
 
-ExecStartPre=/opt/lemonade/stand/venv/bin/python ${STAND_HOME}/stand/manage.py db upgrade
-ExecStart=/opt/lemonade/stand/venv/bin/python ${STAND_HOME}/stand/runner/stand_server.py -c ${STAND_CONFIG} 
+ExecStartPre=/opt/lemonade/docker-lemonade/stand/venv/bin/python ${STAND_HOME}/stand/manage.py db upgrade
+ExecStart=/opt/lemonade/docker-lemonade/stand/venv/bin/python ${STAND_HOME}/stand/runner/stand_server.py -c ${STAND_CONFIG} 
 
 [Install]
 WantedBy=multi-user.target
