@@ -2,3 +2,5 @@ caipirinha
 limonero
 stand
 tahiti
+thorn
+seed
