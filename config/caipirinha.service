@@ -6,7 +6,7 @@ Type=simple
 Environment=LEMONADE_HOME=/opt/lemonade/docker-lemonade
 Environment=CAIPIRINHA_HOME=/opt/lemonade/docker-lemonade/caipirinha
 Environment=PYTHONPATH=/opt/lemonade/docker-lemonade/caipirinha
-Environment=CAIPIRINHA_CONFIG=/opt/lemonade/docker-lemonade/config/caipirinha-config.yaml
+Environment=CAIPIRINHA_CONFIG=/opt/lemonade/docker-lemonade/P01/config/caipirinha-config.yaml
 WorkingDirectory=/opt/lemonade/docker-lemonade/caipirinha
 
 ExecStartPre=/opt/lemonade/docker-lemonade/caipirinha/venv/bin/python ${CAIPIRINHA_HOME}/caipirinha/manage.py db upgrade

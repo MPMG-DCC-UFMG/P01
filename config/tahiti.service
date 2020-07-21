@@ -6,7 +6,7 @@ Type=simple
 Environment=LEMONADE_HOME=/opt/lemonade/docker-lemonade
 Environment=TAHITI_HOME=/opt/lemonade/docker-lemonade/tahiti
 Environment=PYTHONPATH=/opt/lemonade/docker-lemonade/tahiti
-Environment=TAHITI_CONFIG=/opt/lemonade/docker-lemonade/config/tahiti-config.yaml
+Environment=TAHITI_CONFIG=/opt/lemonade/docker-lemonade/P01/config/tahiti-config.yaml
 WorkingDirectory=/opt/lemonade/docker-lemonade/tahiti
 
 ExecStartPre=/opt/lemonade/docker-lemonade/tahiti/venv/bin/python ${TAHITI_HOME}/tahiti/manage.py db upgrade

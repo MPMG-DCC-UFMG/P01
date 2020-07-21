@@ -6,7 +6,7 @@ Type=simple
 Environment=LEMONADE_HOME=/opt/lemonade/docker-lemonade
 Environment=LIMONERO_HOME=/opt/lemonade/docker-lemonade/limonero
 Environment=PYTHONPATH=/opt/lemonade/docker-lemonade/limonero
-Environment=LIMONERO_CONFIG=/opt/lemonade/docker-lemonade/config/limonero-config.yaml
+Environment=LIMONERO_CONFIG=/opt/lemonade/docker-lemonade/P01/config/limonero-config.yaml
 Environment=SPARK_HOME=/opt/spark
 WorkingDirectory=/opt/lemonade/docker-lemonade/limonero
 
